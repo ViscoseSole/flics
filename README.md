@@ -1,10 +1,8 @@
-# flics
+# Flics (This project is very much so under development.)
 
-/_ NOT READY! (AT ALL) _/
+A 'Netflix clone' or simply a movie database with user authentication. For this project I didn't use the create-react-app boilerplate but set up a custom development environment with webpack (With auto-updating dev server, ES2015/JSX/SASS compilers). For UI/State-Management I used React, React-Router and Redux.
 
-A Netflix clone but simply a working movie database with user authentication. For this project I didn't use create-react-app but set up my own "boilerplate" with webpack (With an auto-updating dev server & SASS/ES2015 compilers). UI/State-Management is built using React, React-Router and Redux.
-
-## Usage
+## Installation
 
 1.  `git clone https://github.com/ViscoseSole/flics`
 2.  `npm install`
