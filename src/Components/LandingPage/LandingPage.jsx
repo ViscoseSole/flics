@@ -1,27 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import "./LandingPageHeader.scss";
+import "./LandingPage.scss";
 import Logo from "../Logo/Logo";
 
-export default class LandingPageHeader extends Component {
+export default class LandingPage extends Component {
   render() {
     return (
-      <div>
-        <div className="landing-page-header">
+      <div className="LandingPage">
+        <div className="LandingPage-header">
           <Link to="/" style={{ textDecoration: "none" }}>
             <Logo />
           </Link>
 
-          <Link to="/Signin">
+          <Link to="/login">
             <button>Sign In</button>
           </Link>
         </div>
 
-        <div className="landing-page-header-content">
+        <div className="LandingPage-header-content">
           <span>See what's next.</span>
           <span>WATCH ANYWHERE. CANCEL AT ANY TIME.</span>
-          <button>JOIN FREE FOR A MONTH</button>
+          <Link to="/register">
+            <button>JOIN FREE FOR A MONTH</button>
+          </Link>
         </div>
       </div>
     );

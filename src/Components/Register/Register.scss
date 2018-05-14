@@ -1,4 +1,4 @@
-.Signin {
+.Register {
   width: 100%;
   height: 100vw;
   text-align: center;
@@ -9,7 +9,7 @@
   justify-content: flex-start;
   align-items: center;
 }
-.Signin-header  {
+.Register-header  {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -18,7 +18,7 @@
   height: 70px;
   background: black;
 }
-.Signin-form-container {
+.Register-form-container {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +26,7 @@
   height: 500px;
   margin-top: 70px;
 
-  background: rgba(255, 255, 255, .96);
+  background: rgba(255, 255, 255, 0.96);
 
   h1 {
     letter-spacing: 15px;
@@ -53,16 +53,13 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .Signin-form-container {
+  .Register-form-container {
     width: 100%;
   }
-  .Signin {
+  .Register {
     background: rgba(255, 255, 255, 1);
   }
-  .Signin-header {
-    background: rgba(255, 255, 255, 1);
-  }
-  .Signin-form-container {
+  .Register-header {
     background: rgba(255, 255, 255, 1);
   }
 }

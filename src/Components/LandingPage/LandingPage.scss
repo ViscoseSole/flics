@@ -1,4 +1,14 @@
-.landing-page-header {
+.LandingPage {
+  width: 100%;
+  height: 100vw;
+  background: black;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.LandingPage-header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -23,21 +33,22 @@
   }
 }
 
-.landing-page-header-content {
+.LandingPage-header-content {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: left;
   width: 100%;
-  height: 600px;
+  min-height: 500px;
   color: white;
   background: rgba(47, 53, 66, 0.2);
   padding-left: 50px;
-  background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-0.3.5&s=3921e69007e45be40b5b940240713e9d&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("/src/assets/img/seat-row-3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   background-attachment: fixed;
+
   & span:first-child {
     font-size: 5em;
   }

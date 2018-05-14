@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Switch, BrowserRouter, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./App.scss";
 
-import LandingPageHeader from "../Header/LandingPageHeader.jsx";
+import LandingPage from "../LandingPage/LandingPage.jsx";
 import Signin from "../Signin/Signin.jsx";
+import Register from "../Register/Register.jsx";
 
 export default class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={LandingPageHeader} />
-          <Route exact path="/Signin" component={Signin} />
-          <Route render={NotFound} />
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/login" component={Signin} />
+        <Route path="/register" component={Register} />
+        <Route component={NotFound} />
+      </Switch>
     );
   }
 }

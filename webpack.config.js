@@ -5,8 +5,12 @@ const config = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist",
+    publicPath: "/",
     filename: "bundle.js"
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    port: 3000
   },
   watch: true,
   module: {
