@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Switch, Route } from "react-router-dom";
+import fire from '../../config/Fire';
+import { Switch, Route, Redirect } from "react-router-dom";
 import "./App.scss";
 
 import LandingPage from "../LandingPage/LandingPage.jsx";
 import Signin from "../Signin/Signin.jsx";
 import Register from "../Register/Register.jsx";
 import Browse from "../Browse/Browse.jsx";
-
-import fire from '../../config/Fire';
 
 export default class App extends Component {
   constructor(props) {
@@ -34,16 +33,23 @@ export default class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={Signin} />
-        <Route path="/register" component={Register} />
+        <Route exact path="/" component={this.state.user ? Browse : LandingPage} />
 
-        <Route path="/browse" component={Browse} />
-        {/* this.state.user ? <Route path="/browse" component={Browse} /> : <Route path="/browse" component={Signin} /> */}
+        <Route path="/login" component={this.state.user ? NotFound : Signin} />
+        <Route path="/register" component={this.state.user ? NotFound : Register} />
+
+        {/*
+          -Wanted to simulate the /browse URL but honestly it doesn't matter. It's a start.
+
+          I can do this by redirecting all urls to /browse if user is logged in.
+
+          <Route path="/browse" component={Browse} />
+        */}
+
         <Route component={NotFound} />
       </Switch>
     );
   }
 }
 
-const NotFound = () => <h1>404.. This page is not found!</h1>;
+const NotFound = () => <h1 style={{color: 'white'}}>404.. This page is not found!</h1>;

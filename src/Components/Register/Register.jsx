@@ -1,18 +1,30 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import fire from '../../config/Fire';
 import Logo from "../Logo/Logo";
 import "./Register.scss";
 
 export default class Register extends Component {
   constructor(props) {
     super(props);
+    this.registerUser = this.registerUser.bind(this);
     this.state = {
       email: '',
       password: '',
+      passwordConfirmation: '',
       age: '',
       agreedToTerms: false
     }
   }
+
+  registerUser(e) {
+    e.preventDefault();
+    fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    .then((u) => console.log("done", u))
+    .catch(e => console.log(e))
+  }
+
+
   render() {
     return (
       <div className="Register">
@@ -35,7 +47,11 @@ export default class Register extends Component {
           <input type="password" onChange={(e) => {this.setState({password: e.target.value})}} /><br />
           <br />
 
-          <button onClick={() => console.log(this.state.email, this.state.password)}>Login</button>
+          <span>Re-type Password</span><br />
+          <input type="password" onChange={(e) => {this.setState({passwordConfirmation: e.target.value})}} /><br />
+          <br />
+
+          <button onClick={(e) => this.registerUser(e)}>Register</button>
           <hr />
 
           <span>Already a user? </span>

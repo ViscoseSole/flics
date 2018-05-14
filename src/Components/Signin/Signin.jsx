@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import fire from '../../config/Fire';
 import { Link } from "react-router-dom";
+import fire from '../../config/Fire';
 import Logo from "../Logo/Logo";
 import "./Signin.scss";
 
@@ -17,8 +17,8 @@ export default class Signin extends Component {
   login(e) {
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-    .then((u) => {})
-    .catch(err => console.log(err))
+    .then((success) => {console.log(success)})
+    .catch(err => console.log(err.message))
   }
 
   render() {
@@ -47,7 +47,7 @@ export default class Signin extends Component {
           </Link>
           <br />
 
-          <button onClick={() => this.login()}>Login</button>
+          <button onClick={(e) => this.login(e)}>Login</button>
           <hr />
 
           <span>New to Netflix? </span>
