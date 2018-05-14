@@ -1,0 +1,39 @@
+.Browse {
+  width: 100%;
+  height: 100vw;
+  background: black;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.Browse-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background: black;
+
+  button {
+    width: 80px;
+    height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    padding: 4px 2px;
+    margin-right: 20px;
+    font-size: 17px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    background: #db0000;
+  }
+
+  input {
+    height: 30px;
+    width: 300px;
+  }
+}
