@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { TMDB_API } from '../../keys.js';
 import fire from '../../config/Fire';
 
 import "./Browse.scss";
 import Logo from "../Logo/Logo";
 
 export default class Browse extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: '',
+      latestSearchResults: []
+    }
+  }
 
   signOut(e) {
     e.preventDefault();
@@ -16,6 +24,14 @@ export default class Browse extends Component {
     });
   }
 
+  search(e) {
+    e.preventDefault();
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API}&query=${this.state.search}`)
+    .then(res => res.json())
+    .then(data => this.setState({latestSearchResults: data.results}))
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="Browse">
@@ -24,11 +40,9 @@ export default class Browse extends Component {
             <Logo />
           </Link>
 
-          <input placeholder="Search" />
+          <input placeholder="Search for movies" onKeyPress={(e) => {e.key === 'Enter' ? this.search(e) : false;}} onChange={(e) => {this.setState({search: e.target.value})}} />
 
-          <Link to="/"> {/* Obviously a temporary solution */}
-            <button onClick={(e) => this.signOut(e)}>Sign Out</button>
-          </Link>
+          <button onClick={(e) => this.signOut(e)}>Sign Out</button>
         </div>
 
         <div className="Browse-content-selected">
@@ -36,10 +50,24 @@ export default class Browse extends Component {
         </div>
 
         <div className="Browse-content">
-          <div className="Browse-content-popular">
-            <span>Popular right now: </span><br />
+            {
+              this.state.latestSearchResults.map((item, i) => {
+                return (
+                  <div className="Poster">
+                    <img src=
+                      {
+                      item.poster_path !== null ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : ""
+                      }></img>
 
-          </div>
+                    <p>
+                      {
+                        item.poster_path !== null ? "" : item.title
+                      }
+                    </p>
+                  </div>
+                )}
+              )
+            }
         </div>
       </div>
     );

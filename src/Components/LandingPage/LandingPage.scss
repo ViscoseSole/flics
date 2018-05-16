@@ -43,11 +43,18 @@
   color: white;
   background: rgba(47, 53, 66, 0.2);
   padding-left: 50px;
-  background-image: url("/src/assets/img/seat-row-3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: fixed;
+  /*
+  background: url("./seat-row-3.jpg") no-repeat top;
+  background-size: 100% 100%;
+  */
+
+  .LandingPage-header-content-group {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: left;
+    width: 600px;
+  }
 
   & span:first-child {
     font-size: 5em;

@@ -1,7 +1,8 @@
 import firebase from 'firebase';
+import { Firebase_API } from '../keys.js';
 
 const config = {
-  apiKey: "AIzaSyCyPEddhMi-3bAQqKsI5oJ-9-7OU_yGzj0",
+  apiKey: Firebase_API,
   authDomain: "flics-2db00.firebaseapp.com",
   databaseURL: "https://flics-2db00.firebaseio.com",
   projectId: "flics-2db00",

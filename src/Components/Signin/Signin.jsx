@@ -18,7 +18,7 @@ export default class Signin extends Component {
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
     .then((success) => {console.log(success)})
-    .catch(err => console.log(err.message))
+    .catch(err => alert(err.message))
   }
 
   render() {
@@ -35,12 +35,12 @@ export default class Signin extends Component {
           <br />
 
           <span>Email</span><br />
-          <input onChange={(e) => {this.setState({email: e.target.value})}} />
+          <input onKeyPress={(e) => {e.key === 'Enter' ? this.login(e) : false;}} onChange={(e) => {this.setState({email: e.target.value})}} />
           <br />
 
 
           <span>Password</span><br />
-          <input type="password" onChange={(e) => {this.setState({password: e.target.value})}} /><br />
+          <input type="password" onKeyPress={(e) => {e.key === 'Enter' ? this.login(e) : false;}} onChange={(e) => {this.setState({password: e.target.value})}} /><br />
 
           <Link to="/retrieve-password" style={{ textDecoration: "none" }}>
             <span>Forgot your password?</span><br />
@@ -50,7 +50,7 @@ export default class Signin extends Component {
           <button onClick={(e) => this.login(e)}>Login</button>
           <hr />
 
-          <span>New to Netflix? </span>
+          <span>New to Flics? </span>
           <Link to="/register" style={{ textDecoration: "none" }}>
             <span> Click here to register</span><br />
           </Link>

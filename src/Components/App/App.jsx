@@ -34,22 +34,14 @@ export default class App extends Component {
     return (
       <Switch>
         <Route exact path="/" component={this.state.user ? Browse : LandingPage} />
-
-        <Route path="/login" component={this.state.user ? NotFound : Signin} />
-        <Route path="/register" component={this.state.user ? NotFound : Register} />
-
-        {/*
-          -Wanted to simulate the /browse URL but honestly it doesn't matter. It's a start.
-
-          I can do this by redirecting all urls to /browse if user is logged in.
-
-          <Route path="/browse" component={Browse} />
-        */}
-
-        <Route component={NotFound} />
+        <Route path="/login" component={this.state.user ? Browse : Signin} />
+        <Route path="/register" component={this.state.user ? Browse : Register} />
+        <Route path='/browse' component={this.state.user ? Browse : NotAuthorized} />
+        <Route component={this.state.user ? Browse : NotFound} />
       </Switch>
     );
   }
 }
 
 const NotFound = () => <h1 style={{color: 'white'}}>404.. This page is not found!</h1>;
+const NotAuthorized = () => <h1 style={{color: 'white'}}>You're not authorized to see this page!</h1>;

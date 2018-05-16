@@ -19,11 +19,13 @@ export default class LandingPage extends Component {
         </div>
 
         <div className="LandingPage-header-content">
-          <span>See what's next.</span>
-          <span>WATCH ANYWHERE. CANCEL AT ANY TIME.</span>
-          <Link to="/register">
-            <button>JOIN FREE FOR A MONTH</button>
-          </Link>
+          <div className="LandingPage-header-content-group">
+            <span>See what's next.</span>
+            <span>WATCH ANYWHERE. CANCEL AT ANY TIME.</span>
+            <Link to="/register">
+              <button>JOIN FREE FOR A MONTH</button>
+            </Link>
+          </div>
         </div>
       </div>
     );

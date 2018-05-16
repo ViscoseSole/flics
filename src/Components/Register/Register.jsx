@@ -19,11 +19,13 @@ export default class Register extends Component {
 
   registerUser(e) {
     e.preventDefault();
+
+    this.state.password !== this.state.passwordConfirmation ? alert("Passwords do not match.") : true;
+
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
     .then((u) => console.log("done", u))
-    .catch(e => console.log(e))
+    .catch(e => alert(e.message))
   }
-
 
   render() {
     return (
@@ -39,16 +41,16 @@ export default class Register extends Component {
           <br />
 
           <span>Email</span><br />
-          <input onChange={(e) => {this.setState({email: e.target.value})}} />
+          <input onKeyPress={(e) => {e.key === 'Enter' ? this.registerUser(e) : false;}} onChange={(e) => {this.setState({email: e.target.value})}} />
           <br />
 
 
           <span>Password</span><br />
-          <input type="password" onChange={(e) => {this.setState({password: e.target.value})}} /><br />
+          <input type="password" onKeyPress={(e) => {e.key === 'Enter' ? this.registerUser(e) : false;}} onChange={(e) => {this.setState({password: e.target.value})}} /><br />
           <br />
 
           <span>Re-type Password</span><br />
-          <input type="password" onChange={(e) => {this.setState({passwordConfirmation: e.target.value})}} /><br />
+          <input type="password" onKeyPress={(e) => {e.key === 'Enter' ? this.registerUser(e) : false;}} onChange={(e) => {this.setState({passwordConfirmation: e.target.value})}} /><br />
           <br />
 
           <button onClick={(e) => this.registerUser(e)}>Register</button>
