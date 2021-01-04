@@ -4,7 +4,7 @@ A 'Netflix clone' or simply a movie database with user authentication. For this 
 
 ## Installation
 
-1.  `git clone https://github.com/ViscoseSole/flics`
+1.  `git clone https://github.com/nhult/flics`
 2.  `npm install`
 3.  `npm start`
 4.  Find project at `localhost:3000`
